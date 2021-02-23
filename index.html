@@ -9,24 +9,24 @@
     <meta name="description" content="Software architecture diagrams as code or text" />
     <meta name="keywords" content="software architecture, software architecture diagrams, c4 model" />
 
-    <link rel="icon" href="./static/img/favicon.png" />
-    <link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png" />
+    <link rel="icon" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
 
-    <link href="./static/css/bootstrap-3.3.2.min.css" rel="stylesheet" media="screen" />
-    <link href="./static/css/bootstrap-theme-3.3.2.min.css" rel="stylesheet" media="screen" />
-    <link href="./static/css/structurizr.css" rel="stylesheet" media="screen" />
+    <link href="./css/bootstrap-3.3.2.min.css" rel="stylesheet" media="screen" />
+    <link href="./css/bootstrap-theme-3.3.2.min.css" rel="stylesheet" media="screen" />
+    <link href="./css/structurizr.css" rel="stylesheet" media="screen" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
-    <link href="./static/css/structurizr-dark.css" rel="stylesheet" media="screen" />
+    <link href="./css/structurizr-dark.css" rel="stylesheet" media="screen" />
 
-    <script src="./static/js/jquery-3.1.0.js"></script>
-    <script src="./static/js/bootstrap-3.3.2.min.js"></script>
+    <script src="./js/jquery-3.1.0.js"></script>
+    <script src="./js/bootstrap-3.3.2.min.js"></script>
 </head>
 
 <body>
     <div id="topNavigation">
         <div class="row">
             <div class="col-sm-2 hidden-xs hidden-sm" style="padding: 18px 30px 10px 30px">
-                <img src="./static/img/structurizr-banner.png" alt="Structurizr" class="structurizrBannerLight img-responsive brandingLogo" /><img src="./static/img/structurizr-banner-dark.png" alt="Structurizr" class="structurizrBannerDark img-responsive brandingLogo" />
+                <img src="./img/structurizr-banner.png" alt="Structurizr" class="structurizrBannerLight img-responsive brandingLogo" /><img src="./img/structurizr-banner-dark.png" alt="Structurizr" class="structurizrBannerDark img-responsive brandingLogo" />
             </div>
             <div class="col-sm-10" style="padding: 20px 30px 10px 30px; text-align: right;">
                 <span class="topNavigationItem"><a href="#code">Diagrams as code</a></span>
@@ -50,9 +50,6 @@
                     There has been a trend over the past few years towards text-based tooling, with the most popular examples including <a href="http://plantuml.com" target="_blank">PlantUML</a>,
                     <a href="https://www.websequencediagrams.com" target="_blank">WebSequenceDiagrams</a> and <a href="https://mermaid-js.github.io/mermaid/" target="_blank">Mermaid</a>.
                     With these tools, the diagram source is provided as text using a special domain-specific language, which the tool then visualises, typically with an automatic layout algorithm.
-                </p>
-        
-                <p>
                     These tools generally have a low barrier to entry, and the source text is easily version controlled.
                     Also, it's relatively straightforward to automate the use of these tools in order to generate diagrams and documentation during your build process.
                 </p>
@@ -64,15 +61,24 @@
                     To solve this problem, we can create a <b>single model</b>, and visualise <b>multiple views</b> of it.
                 </p>
 
-                <h3>tl;dr</h3>
-                <p>
-                    If you just want to create some software architecture diagrams:
-                </p>
+                <br />
 
-                <ol>
-                    <li><a href="https://www.infoq.com/articles/C4-architecture-model/" target="_blank">Read the 5 minute introduction to the C4 model</a></li>
-                    <li><a href="https://structurizr.com/dsl" target="_blank">Start with the Structurizr DSL</a></li>
-                </ol>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h3>tl;dr</h3>
+                        <p>
+                            If you just want to create some software architecture diagrams:
+                        </p>
+        
+                        <ol>
+                            <li><a href="https://www.infoq.com/articles/C4-architecture-model/" target="_blank">Read the 5 minute introduction to the C4 model</a></li>
+                            <li><a href="https://structurizr.com/dsl" target="_blank">Start with the Structurizr DSL</a></li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-5">
+                        <a href="https://structurizr.com/dsl" target="_blank"><img src="./img/structurizr-dsl-screenshot.png" alt="Structurizr DSL screenshot" class="img-thumbnail" /></a>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -83,54 +89,21 @@
                 <p>
                     Structurizr is a collection of tooling to create software architecture diagrams and documentation based upon the
                     <a href="https://c4model.com" target="_blank">C4 model</a>.
-                    Structurizr was started in 2014 by <a href="https://simonbrown.je" target="_blank">Simon Brown</a>, and has grown into a community of tooling, much of which is open source.
+                    Structurizr was started in 2014 by <a href="https://simonbrown.je" target="_blank">Simon Brown</a> (the creator of the C4 model), and has grown into a community of tooling, much of which is open source.
+                    In Structurizr terminology, a "workspace" is a wrapper for a software architecture model (elements and relationships) and views.
+                    Workspaces are described using an open data format (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
+                    which decouples model authoring from diagram rendering.
                 </p>
 
-                <br />
-                <p class="centered"><b>workspace</b> = <b>model</b> (elements and relationships) + <b>views</b> (for rendering as diagrams)</p>
+                <p>
+                    <img src="./img/overview.png" alt="Overview" class="img-responsive" />
+                </p>
+
                 <br />
 
                 <p>
-                    In Structurizr terminology, a "workspace" is a wrapper for a software architecture model and views.
-                    Workspaces are described using a JSON document (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
-                    and can be created using a number of authoring tools, supporting "diagrams as code" and "diagrams as text" (see below).
-                    The views within a workspace can be rendered using a number of different rendering tools (see below).
-                </p>
-
-                <br />
-                <br />
-
-                <div class="row">
-                    <div class="col-sm-4 centered">
-                        <p style="margin-top: 20px; margin-bottom: 30px">
-                            <span class="label structurizrBackgroundDarker" style="font-size: 30px">Model-based</span>
-                        </p>
-                        <p>
-                            Generating multiple diagrams from the same model ensures consistency, and details being in sync across diagrams.
-                        </p>
-                    </div>
-                    <div class="col-sm-4 centered">
-                        <p style="margin-top: 20px; margin-bottom: 30px">
-                            <span class="label structurizrBackgroundDark" style="font-size: 30px">Multiple output formats</span>
-                        </p>
-                        <p>
-                            Rather than being locked into a single tool, the Structurizr tooling provides a way to export your views to multiple formats.
-                        </p>
-                    </div>
-                    <div class="col-sm-4 centered">
-                        <p style="margin-top: 20px; margin-bottom: 30px">
-                            <span class="label structurizrBackgroundBase" style="font-size: 30px">Versionable</span>
-                        </p>
-                        <p>
-                            Since the models are created using code/text, they are also versionable alongside your codebase in your version control system.
-                        </p>
-                    </div>
-                </div>
-                
-                <br />
-
-                <p class="centered">
-                    <a href="https://structurizr.com/dsl" target="_blank"><img src="./static/img/structurizr-dsl-screenshot.png" alt="Structurizr DSL screenshot" class="img-thumbnail" /></a>
+                    Structurizr is "model-based", making it possible to generate multiple diagrams from the same model to ensure consistency, with details being in sync across all diagrams.
+                    And since the models are created using code/text, they are also versionable alongside your codebase in your source code repository.
                 </p>
             </div>
         </div>
@@ -146,7 +119,7 @@
                 <div class="row" style="margin-top: 40px">
                     <div class="col-sm-6 centered">
                         <p class="centered">
-                            <img src="./static/img/modelling-text.png" alt="Diagrams as text" class="img-thumbnail grayscale" />
+                            <img src="./img/modelling-text.png" alt="Diagrams as text" class="img-thumbnail grayscale" />
                         </p>
                         <a name="text"></a>
                         <h3>Diagrams as text</h3>
@@ -156,7 +129,7 @@
                             The DSL is designed to be used in conjunction with the <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a>.
                             A number of <a href="https://github.com/structurizr/dsl#tooling-support" target="_blank">VS Code extensions</a> are also available,
                             and the Structurizr cloud service and on-premises installation provide a web-based DSL editor, with diagramming previews and real-time collaboration.
-                            The Structurizr DSL is the recommended authoring option for most teams.
+                            <b>The Structurizr DSL is the recommended authoring option for most teams.</b>
                         </p>
 
                         <p class="small">
@@ -166,16 +139,13 @@
                 
                     <div class="col-sm-6 centered">
                         <p class="centered">
-                            <img src="./static/img/modelling-code.png" alt="Create content using code" class="img-thumbnail grayscale" />
+                            <img src="./img/modelling-code.png" alt="Create content using code" class="img-thumbnail grayscale" />
                         </p>
                         <a name="code"></a>
                         <h3>Diagrams as code</h3>
                         <p class="small">
                             Libraries are available for a number of programming languages, all compatible with the Structurizr JSON format for defining a workspace.
                             This authoring option is recommended for teams who want to use code to help build their software architecture model (e.g. component discovery via static analysis, parsing distributed log files, etc).
-                        </p>
-
-                        <p class="small">
                             The following libraries are available, all of which are open source.
                         </p>
 
@@ -212,13 +182,13 @@
                             It can also publish <a href="https://structurizr.com/help/documentation" target="_blank">Markdown/AsciiDoc documentation</a> and <a href="https://structurizr.com/help/decision-log" target="_blank">architecture decision records (ADRs)</a>.
                             <br />
                             <br />
-                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./static/img/rendering-structurizr.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./img/rendering-structurizr.png" alt="Structurizr" class="img-thumbnail" /></a>
                             <br />
                             <br />
-                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./static/img/rendering-structurizr-key.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./img/rendering-structurizr-key.png" alt="Structurizr" class="img-thumbnail" /></a>
                             <br />
                             <br />
-                            <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./static/img/rendering-structurizr-graph.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./img/rendering-structurizr-graph.png" alt="Structurizr" class="img-thumbnail" /></a>
                         </p>
                     </div>
                     <div class="col-sm-4 centered">
@@ -227,7 +197,7 @@
                             A text-based diagramming tool - available via the Structurizr CLI.
                             <br />
                             <br />
-                            <img src="./static/img/rendering-plantuml.png" alt="PlantUML" class="img-thumbnail" />
+                            <img src="./img/rendering-plantuml.png" alt="PlantUML" class="img-thumbnail" />
                         </p>
 
                         <br />
@@ -237,7 +207,7 @@
                             A text-based diagramming tool - available via the Structurizr CLI (dynamic views only).
                             <br />
                             <br />
-                            <img src="./static/img/rendering-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail" />
+                            <img src="./img/rendering-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail" />
                         </p>
                     </div>
                     <div class="col-sm-4 centered">
@@ -246,7 +216,7 @@
                             A text-based diagramming tool - available via the Structurizr CLI.
                             <br />
                             <br />
-                            <img src="./static/img/rendering-mermaid.jpg" alt="Mermaid" class="img-thumbnail" />
+                            <img src="./img/rendering-mermaid.jpg" alt="Mermaid" class="img-thumbnail" />
                         </p>
 
                         <br />
@@ -256,7 +226,7 @@
                             A text-based modelling tool - available via the Structurizr CLI.
                             <br />
                             <br />
-                            <img src="./static/img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail" />
+                            <img src="./img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail" />
                         </p>
                     </div>
                 </div>
