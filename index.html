@@ -32,6 +32,7 @@
                 <span class="topNavigationItem"><a href="#code">Diagrams as code</a></span>
                 <span class="topNavigationItem"><a href="#text">Diagrams as text</a></span>
                 <span class="topNavigationItem"><a href="#rendering">Rendering tools</a></span>
+                <span class="topNavigationItem"><a href="#usage-recommendations">Usage recommendations</a></span>
                 <span class="topNavigationItem"></span>
             </div>
         </div>
@@ -201,10 +202,13 @@
                             It can also publish <a href="https://structurizr.com/help/documentation" target="_blank">Markdown/AsciiDoc documentation</a> and <a href="https://structurizr.com/help/decision-log" target="_blank">architecture decision records (ADRs)</a>.
                             <br />
                             <br />
-                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./static/img/structurizr-36141-Containers-structurizr.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./static/img/rendering-structurizr.png" alt="Structurizr" class="img-thumbnail" /></a>
                             <br />
                             <br />
-                            <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./static/img/structurizr-36141-Containers-structurizr-graph.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./static/img/rendering-structurizr-key.png" alt="Structurizr" class="img-thumbnail" /></a>
+                            <br />
+                            <br />
+                            <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./static/img/rendering-structurizr-graph.png" alt="Structurizr" class="img-thumbnail" /></a>
                         </p>
                     </div>
                     <div class="col-sm-4 centered">
@@ -213,7 +217,17 @@
                             A text-based diagramming tool - available via the Structurizr CLI.
                             <br />
                             <br />
-                            <img src="./static/img/structurizr-36141-Containers-plantuml.png" alt="PlantUML" class="img-thumbnail" />
+                            <img src="./static/img/rendering-plantuml.png" alt="PlantUML" class="img-thumbnail" />
+                        </p>
+
+                        <br />
+
+                        <a href="https://mermaid-js.github.io/" target="_blank">Mermaid</a>
+                        <p class="small">
+                            A text-based diagramming tool - available via the Structurizr CLI.
+                            <br />
+                            <br />
+                            <img src="./static/img/rendering-mermaid.jpg" alt="Mermaid" class="img-thumbnail" />
                         </p>
 
                         <br />
@@ -223,26 +237,26 @@
                             A text-based diagramming tool - available via the Structurizr CLI (dynamic views only).
                             <br />
                             <br />
-                            <img src="./static/img/structurizr-36141-SignIn-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail" />
+                            <img src="./static/img/rendering-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail" />
                         </p>
                     </div>
                     <div class="col-sm-4 centered">
-                        <a href="https://mermaid-js.github.io/" target="_blank">Mermaid</a>
-                        <p class="small">
-                            A text-based diagramming tool - available via the Structurizr CLI.
-                            <br />
-                            <br />
-                            <img src="./static/img/structurizr-36141-Containers-mermaid.jpg" alt="Mermaid" class="img-thumbnail" />
-                        </p>
-
-                        <br />
-                        
                         <a href="https://www.ilograph.com" target="_blank">Ilograph</a>
                         <p class="small">
                             A text-based modelling tool - available via the Structurizr CLI.
                             <br />
                             <br />
-                            <img src="./static/img/structurizr-36141-ilograph.png" alt="Ilograph" class="img-thumbnail" />
+                            <img src="./static/img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail" />
+                        </p>
+
+                        <br />
+                        
+                        <a href="https://github.com/goadesign/model" target="_blank">Model (Go)</a>
+                        <p class="small">
+                            A Go-based modelling tool and diagram editor.
+                            <br />
+                            <br />
+                            <img src="./static/img/rendering-gomodel.png" alt="Model" class="img-thumbnail" />
                         </p>
                     </div>
                 </div>
@@ -252,7 +266,7 @@
         
         <div class="section">
             <div class="container">
-                <h3>Other tools</h3>
+                <h2>Other tools</h2>
                 <p>
                     Here are some other related tools.
                 </p>
@@ -281,6 +295,85 @@
                 </div>
         
             </div>
+        </div>
+    </div>
+
+    <a name="usage-recommendations"></a>
+    <div class="section">
+        <div class="container">
+            <h2>Usage recommendations</h2>
+            <p>
+                Teams tend to ask how many workspaces they should create/use. There are a number of ways to think about workspaces, and how they align with your organisation:
+            </p>
+            <ul>
+                <li>A workspace is used to document a <b>single software system</b>, which is perhaps owned by a single team.</li>
+                <li>A workspace is used to document a <b>single service</b>, which perhaps resides in its own source code repository.</li>
+            </ul>
+
+            <p>
+                Here are some example scenarios.
+            </p>
+
+            <h4>Example 1: single software system (monolithic), single team</h4>
+            <p>
+                A software development team is building a software system comprised of a monolithic application and a database.
+                Since the single team owns and is responsible for the entire software system,
+                the recommendation is to document this in a single workspace.
+            </p>
+
+            <ul>
+                <li>Number of workspaces: 1</li>
+            </ul>
+
+            <h4>Example 2: single software system (N microservices), single team</h4>
+            <p>
+                A software development team is building a software system comprised of N microservices (plus their corresponding data stores, if applicable).
+                Since the single team owns and is responsible for the entire software system,
+                the recommendation is to document this in a single workspace.
+            </p>
+
+            <ul>
+                <li>Number of workspaces: 1</li>
+            </ul>
+
+            <h4>Example 3: single software system, multiple feature teams/squads</h4>
+            <p>
+                As examples 1 and 2, but multiple feature teams/squads are contributing to the software system.
+                In this scenario, treat the feature teams/squads as an orthogonal concern.
+                The recommendation is to document this in a single workspace, so that all of the documentation for the software system resides together.
+            </p>
+
+            <ul>
+                <li>Number of workspaces: 1</li>
+            </ul>
+
+            <h4>Example 4: multiple software systems, multiple feature teams/squads</h4>
+            <p>
+                As example 3, but the feature teams/squads are contributing to N software systems.
+                Again, in this scenario, treat the feature teams/squads as an orthogonal concern.
+                The recommendation is to document each software system in a separate workspace.
+            </p>
+
+            <ul>
+                <li>Number of workspaces: N</li>
+            </ul>
+
+            <h4>Example 5: microservices development, multiple teams</h4>
+            <p>
+                An organisation is building a software system comprised of N microservices (including their corresponding data stores, etc if applicable).
+                Each microservice is owned by a separate software development team.
+                Due to the separate team boundaries, the recommendation is to treat each microservice as a separate software system,
+                and to therefore document each microservice in a separate workspace.
+                An additional workspace can be used to model the system landscape (i.e. the people and software systems).
+            </p>
+
+            <p>
+                In summary, you have one workspace documenting the system landscape, and one workspace per microservice.
+            </p>
+
+            <ul>
+                <li>Number of workspaces: N + 1</li>
+            </ul>
         </div>
     </div>
 
