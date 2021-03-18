@@ -29,8 +29,7 @@
                 <img src="./img/structurizr-banner.png" alt="Structurizr" class="structurizrBannerLight img-responsive brandingLogo" /><img src="./img/structurizr-banner-dark.png" alt="Structurizr" class="structurizrBannerDark img-responsive brandingLogo" />
             </div>
             <div class="col-sm-10" style="padding: 20px 30px 10px 30px; text-align: right;">
-                <span class="topNavigationItem"><a href="#code">Diagrams as code</a></span>
-                <span class="topNavigationItem"><a href="#text">Diagrams as text</a></span>
+                <span class="topNavigationItem"><a href="#authoring">Authoring tools</a></span>
                 <span class="topNavigationItem"><a href="#rendering">Rendering tools</a></span>
                 <span class="topNavigationItem"><a href="#usage-recommendations">Usage recommendations</a></span>
                 <span class="topNavigationItem"></span>
@@ -86,7 +85,6 @@
             </div>
         </div>
         
-        <a name="authoring"></a>
         <div class="section">
             <div class="container">
                 <h2>What is Structurizr?</h2>
@@ -398,70 +396,83 @@
                 <li>A workspace is used to document a <b>single service</b>, which perhaps resides in its own source code repository.</li>
             </ul>
 
-            <p>
-                Here are some example scenarios.
-            </p>
-
-            <h4>Example 1: single software system (monolithic), single team</h4>
-            <p>
-                A software development team is building a software system comprised of a monolithic application and a database.
-                Since the single team owns and is responsible for the entire software system,
-                the recommendation is to document this in a single workspace.
-            </p>
-
-            <ul>
-                <li>Number of workspaces: 1</li>
-            </ul>
-
-            <h4>Example 2: single software system (N microservices), single team</h4>
-            <p>
-                A software development team is building a software system comprised of N microservices (plus their corresponding data stores, if applicable).
-                Since the single team owns and is responsible for the entire software system,
-                the recommendation is to document this in a single workspace.
-            </p>
-
-            <ul>
-                <li>Number of workspaces: 1</li>
-            </ul>
-
-            <h4>Example 3: single software system, multiple feature teams/squads</h4>
-            <p>
-                As examples 1 and 2, but multiple feature teams/squads are contributing to the software system.
-                In this scenario, treat the feature teams/squads as an orthogonal concern.
-                The recommendation is to document this in a single workspace, so that all of the documentation for the software system resides together.
-            </p>
-
-            <ul>
-                <li>Number of workspaces: 1</li>
-            </ul>
-
-            <h4>Example 4: multiple software systems, multiple feature teams/squads</h4>
-            <p>
-                As example 3, but the feature teams/squads are contributing to N software systems.
-                Again, in this scenario, treat the feature teams/squads as an orthogonal concern.
-                The recommendation is to document each software system in a separate workspace.
-            </p>
-
-            <ul>
-                <li>Number of workspaces: N</li>
-            </ul>
-
-            <h4>Example 5: microservices development, multiple teams</h4>
-            <p>
-                An organisation is building a software system comprised of N microservices (including their corresponding data stores, etc if applicable).
-                Each microservice is owned by a separate software development team.
-                Due to the separate team boundaries, the recommendation is to treat each microservice as a separate software system,
-                and to therefore document each microservice in a separate workspace.
-                An additional workspace can be used to model the system landscape (i.e. the people and software systems).
-            </p>
+            <br />
 
             <p>
-                In summary, you have one workspace documenting the system landscape, and one workspace per microservice.
+                Here are some example scenarios to help you decide how to structure your software architectue models.
             </p>
 
-            <ul>
-                <li>Number of workspaces: N + 1</li>
-            </ul>
+            <div class="row">
+                <div class="col-sm-6 small">
+                    <h4>1. single software system (monolithic), single team</h4>
+                    <p>
+                        A software development team is building a software system comprised of a monolithic application and a database.
+                        Since the single team owns and is responsible for the entire software system,
+                        the recommendation is to model this in a single workspace.
+                    </p>
+                    <ul>
+                        <li>Number of workspaces: 1</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 small">
+                    <h4>2. single software system (N microservices), single team</h4>
+                    <p>
+                        A software development team is building a software system comprised of N microservices (plus their corresponding data stores, if applicable).
+                        Since the single team owns and is responsible for the entire software system,
+                        the recommendation is to model this in a single workspace.
+                    </p>
+                    <ul>
+                        <li>Number of workspaces: 1</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 small">
+                    <h4>3. single software system, multiple feature teams/squads</h4>
+                    <p>
+                        As examples 1 and 2, but multiple feature teams/squads are contributing to the software system.
+                        In this scenario, treat the feature teams/squads as an orthogonal concern.
+                        The recommendation is to model this in a single workspace, so that all of the documentation for the software system resides together.
+                    </p>
+                    <ul>
+                        <li>Number of workspaces: 1</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 small">
+                    <h4>4. multiple software systems, multiple feature teams/squads</h4>
+                    <p>
+                        As example 3, but the feature teams/squads are contributing to N software systems.
+                        Again, in this scenario, treat the feature teams/squads as an orthogonal concern.
+                        The recommendation is to model each software system in a separate workspace.
+                    </p>
+                    <ul>
+                        <li>Number of workspaces: N</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 small">
+                    <h4>5. microservices development, multiple teams</h4>
+                    <p>
+                        An organisation is building a software system comprised of N microservices (including their corresponding data stores, etc if applicable).
+                        Each microservice is owned by a separate software development team.
+                        Due to the separate team boundaries, the recommendation is to treat each microservice as a separate software system,
+                        and to therefore model each microservice in a separate workspace.
+                        An additional workspace can be used to model the system landscape (i.e. the people and software systems).
+                    </p>
+                    <p>
+                        In summary, you have one workspace documenting the system landscape, and one workspace per microservice.
+                    </p>
+                    <ul>
+                        <li>Number of workspaces: N + 1</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 small">
+                </div>
+            </div>
+
         </div>
     </div>
 
