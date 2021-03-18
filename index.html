@@ -52,7 +52,7 @@
                 <p>
                     There has been a trend over the past few years towards text-based tooling, with the most popular examples including <a href="http://plantuml.com" target="_blank">PlantUML</a>,
                     <a href="https://www.websequencediagrams.com" target="_blank">WebSequenceDiagrams</a> and <a href="https://mermaid-js.github.io/mermaid/" target="_blank">Mermaid</a>.
-                    With these tools, the diagram source is provided as text using a special domain-specific language, which the tool then visualises, typically with an automatic layout algorithm.
+                    With these tools, the diagram source is provided as text using a propriety domain-specific language, which the tool then visualises, typically with an automatic layout algorithm.
                     These tools generally have a low barrier to entry, and the source text is easily version controlled.
                     Also, it's relatively straightforward to automate the use of these tools in order to generate diagrams and documentation during your build process.
                 </p>
@@ -70,6 +70,7 @@
                     <div class="col-sm-7">
                         <h3>tl;dr</h3>
                         <p>
+                            Structurizr lets you create <b>multiple diagrams</b> from a <b>single model</b>, and those diagrams can be rendered with a number of tools, <b>reducing vendor lock-in</b>.
                             If you just want to create some software architecture diagrams:
                         </p>
         
@@ -94,12 +95,12 @@
                     <a href="https://c4model.com" target="_blank">C4 model</a>.
                     Structurizr was started in 2014 by <a href="https://simonbrown.je" target="_blank">Simon Brown</a> (the creator of the C4 model), and has grown into a community of tooling, much of which is open source.
                     In Structurizr terminology, a "workspace" is a wrapper for a software architecture model (elements and relationships) and views.
-                    Workspaces are described using an open data format (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
+                    Workspaces are described using an open JSON data format (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
                     which decouples model authoring from diagram rendering.
                 </p>
 
                 <p>
-                    <img src="./img/overview.png" alt="Overview" class="img-responsive" />
+                    <img src="./img/overview.jpg" alt="Overview" class="img-responsive" />
                 </p>
 
                 <br />
@@ -284,7 +285,7 @@
                     </tr>
 
                     <tr>
-                        <td>Double-click to zoom</td>
+                        <td>Click to zoom</td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
