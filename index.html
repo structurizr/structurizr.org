@@ -31,6 +31,7 @@
             <div class="col-sm-10" style="padding: 20px 30px 10px 30px; text-align: right;">
                 <span class="topNavigationItem"><a href="#authoring">Authoring tools</a></span>
                 <span class="topNavigationItem"><a href="#rendering">Rendering tools</a></span>
+                <span class="topNavigationItem"><a href="#custom">Custom tools</a></span>
                 <span class="topNavigationItem"><a href="#usage-recommendations">Usage recommendations</a></span>
                 <span class="topNavigationItem"></span>
             </div>
@@ -350,36 +351,24 @@
             </div>
         </div>
         
+        <a name="custom"></a>
         <div class="section">
             <div class="container">
-                <h2>Other tools</h2>
+                <h2>Custom tools</h2>
                 <p>
-                    Here are some other related tools.
+                    Since workspaces are described using an open JSON data format (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
+                    it's relatively straightforward to build your own custom tooling to consume that data;
+                    perhaps for rendering views with your own diagramming tool,
+                    or to integrate the data with your internal dashboards and service catalogs.
+                    Although JSON is an easy data format to work with, using one of the code-based client libraries (see <a href="#authoring">authoring tools</a>) will provide a quicker starting point.
+                    For example, you can load a JSON workspace definition using the Java client library as follows, with the resulting <code>Workspace</code> object providing an easy way to navigate/manipulate/translate/export the data: 
                 </p>
-        
+                
                 <br />
-        
-                <div class="row">
-                    <div class="col-sm-4 centered">
-                        <a href="https://github.com/structurizr/puppeteer" target="_blank">Structurizr Puppeteer</a>
-                        <p class="small">
-                            A command line utility to automate the export of diagrams in PNG/SVG formats from the Structurizr cloud service/on-premises installation.
-                        </p>
-                    </div>
-                    <div class="col-sm-4 centered">
-                        <a href="https://github.com/structurizr/atlassian-confluence-server" target="_blank">Structurizr macros for Atlassian Confluence Server</a>
-                        <p class="small">
-                            Macros to embed diagrams from the paid Structurizr cloud service/on-premises installation into Atlassian Confluence Server.
-                        </p>
-                    </div>
-                    <div class="col-sm-4 centered">
-                        <a href="https://github.com/structurizr/atlassian-confluence-cloud" target="_blank">Structurizr macros for Confluence on Atlassian Cloud</a>
-                        <p class="small">
-                            Macros to embed diagrams from the paid Structurizr cloud service/on-premises installation into Confluence on Atlassian Cloud.
-                        </p>
-                    </div>
-                </div>
-        
+
+                <pre>public static void main(String[] args) throws Exception {
+    Workspace workspace = WorkspaceUtils.loadWorkspaceFromJson(new File("workspace.json"));
+}</pre>
             </div>
         </div>
     </div>
