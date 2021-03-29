@@ -194,6 +194,16 @@
                             <br />
                             <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./img/rendering-structurizr-graph.png" alt="Structurizr" class="img-thumbnail" /></a>
                         </p>
+
+                        <br />
+
+                        <a href="https://www.ilograph.com" target="_blank">Ilograph</a>
+                        <p class="small">
+                            A text-based modelling tool - export available via the Structurizr CLI.
+                            <br />
+                            <br />
+                            <img src="./img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail" />
+                        </p>
                     </div>
                     <div class="col-sm-4 centered">
                         <a href="https://plantuml.com" target="_blank">PlantUML</a>
@@ -219,6 +229,16 @@
 
                         <br />
 
+                        <a href="https://graphviz.org/" target="_blank">DOT (via Graphviz)</a>
+                        <p class="small">
+                            A text-based diagramming tool - export available via the Structurizr CLI.
+                            <br />
+                            <br />
+                            <img src="./img/rendering-dot.png" alt="DOT (via Graphviz)" class="img-thumbnail" />
+                        </p>
+
+                        <br />
+
                         <a href="https://www.websequencediagrams.com/" target="_blank">WebSequenceDiagrams</a>
                         <p class="small">
                             A text-based diagramming tool - export available via the Structurizr CLI (dynamic views only).
@@ -226,18 +246,10 @@
                             <br />
                             <img src="./img/rendering-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail" />
                         </p>
-
-                        <br />
-
-                        <a href="https://www.ilograph.com" target="_blank">Ilograph</a>
-                        <p class="small">
-                            A text-based modelling tool - export available via the Structurizr CLI.
-                            <br />
-                            <br />
-                            <img src="./img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail" />
-                        </p>
                     </div>
                 </div>
+
+                <br /><br />
 
                 <p>
                     Here are some of the key differences between the various rendering tools.
@@ -247,19 +259,47 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th width="10%" class="centered">Structurizr</div></th>
+                        <th width="10%" class="centered">Structurizr (diagram)</div></th>
+                        <th width="10%" class="centered">Structurizr (graph)</div></th>
                         <th width="10%" class="centered">PlantUML</th>
                         <th width="10%" class="centered">Mermaid</th>
+                        <th width="10%" class="centered">DOT</th>
                         <th width="10%" class="centered">WebSequenceDiagrams</th>
                         <th width="10%" class="centered">Ilograph</th>
                     </tr>
                     </thead>
 
                     <tr>
+                        <td>Example</td>
+                        <td class="centered">
+                            <a href="./img/rendering-structurizr.png" target="_blank"><img src="./img/rendering-structurizr.png" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-structurizr-graph.png" target="_blank"><img src="./img/rendering-structurizr-graph.png" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-plantuml.png" target="_blank"><img src="./img/rendering-plantuml.png" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-mermaid.jpg" target="_blank"><img src="./img/rendering-mermaid.jpg" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-dot.png" target="_blank"><img src="./img/rendering-dot.png" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-websequencediagrams.png" target="_blank"><img src="./img/rendering-websequencediagrams.png" class="img-thumbnail"></a>
+                        </td>
+                        <td class="centered">
+                            <a href="./img/rendering-ilograph.png" target="_blank"><img src="./img/rendering-ilograph.png" class="img-thumbnail"></a>
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td>Shapes</td>
                         <td class="centered">
                             <a href="./img/shapes-structurizr.png" target="_blank"><img src="./img/shapes-structurizr.png" class="img-thumbnail"></a>
                         </td>
+                        <td class="centered"></td>
                         <td class="centered">
                             <a href="./img/shapes-plantuml.png" target="_blank"><img src="./img/shapes-plantuml.png" class="img-thumbnail"></a>
                             <div class="smaller">PlantUML</div>
@@ -270,6 +310,9 @@
                         <td class="centered">
                             <a href="./img/shapes-mermaid.png" target="_blank"><img src="./img/shapes-mermaid.png" class="img-thumbnail"></a>
                         </td>
+                        <td class="centered">
+                            <a href="./img/shapes-dot.png" target="_blank"><img src="./img/shapes-dot.png" class="img-thumbnail"></a>
+                        </td>
                         <td class="centered">UML</td>
                         <td class="centered">Boxes</td>
                     </tr>
@@ -277,7 +320,9 @@
                     <tr>
                         <td>Automatic diagram key/legend</td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
+                        <td class="centered"></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /><div class="smaller">(colours only with C4-PlantUML)</div></td>
+                        <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
@@ -289,12 +334,16 @@
                         <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
+                        <td class="centered"></td>
+                        <td class="centered"></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                     </tr>
         
                     <tr>
                         <td>Interactive/animations</td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
+                        <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
+                        <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
@@ -304,6 +353,8 @@
                     <tr>
                         <td>Rendering</td>
                         <td class="centered">Web browser</td>
+                        <td class="centered">Web browser</td>
+                        <td class="centered">Server</td>
                         <td class="centered">Server</td>
                         <td class="centered">Server</td>
                         <td class="centered">Server</td>
@@ -317,10 +368,14 @@
                         <td class="centered">Automatic</td>
                         <td class="centered">Automatic</td>
                         <td class="centered">Automatic</td>
+                        <td class="centered">Automatic</td>
+                        <td class="centered">Automatic</td>
                     </tr>
 
                     <tr>
                         <td>PNG export</td>
+                        <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
+                        <td class="centered"></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
@@ -331,6 +386,8 @@
                     <tr>
                         <td>SVG export</td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
+                        <td class="centered"></td>
+                        <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
                         <td class="centered"><img src="./glyphicons/glyphicons-basic-739-check.svg" class="glyphicon-sm" /></td>
@@ -339,6 +396,8 @@
 
                     <tr>
                         <td>PDF export</td>
+                        <td class="centered"></td>
+                        <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
                         <td class="centered"></td>
