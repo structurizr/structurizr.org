@@ -673,3 +673,8 @@ hr {
 .brandingLogo {
     max-height: 35px;
 }
+.screenshot {
+    width: 300px;
+    max-width: 300px;
+    margin: 20px;
+}
