@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Structurizr</title>
+    <title>Structurizr - Diagrams as code 2.0</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -72,7 +72,7 @@
                     <div class="col-sm-7">
                         <h3>tl;dr</h3>
                         <p>
-                            Structurizr lets you create <b>multiple diagrams</b> from a <b>single model</b>, and those diagrams can be rendered with a number of tools, reducing vendor lock-in.
+                            Structurizr lets you create a <b>single model</b> with <b>multiple views</b>, which can be <b>rendered with a number of tools</b>.
                             If you just want to create some software architecture diagrams quickly:
                         </p>
         
@@ -85,6 +85,89 @@
                         <a href="https://structurizr.com/dsl" target="_blank"><img src="./img/structurizr-dsl-screenshot.png" alt="Structurizr DSL screenshot" class="img-thumbnail" /></a>
                     </div>
                 </div>
+
+                <h3>An example</h3>
+                <p>
+                    This Structurizr DSL example creates two diagrams, based upon a single set of elements and relationships.
+                </p>
+                
+                <div class="row" style="margin-top: 40px; padding-bottom: 10px">
+                    <div class="col-sm-6">
+                                <pre style="background: #ffffff;"><code>workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+
+}</code></pre>
+                    </div>
+                    <div class="col-sm-6 centered">
+                        <div style="margin-bottom: 18px">
+                            <img src="./img/try-1.png" alt="Multiple diagrams from a single model" class="img-thumbnail" />
+                        </div>
+                
+                        <div>
+                            <img src="./img/try-2.png" alt="Multiple diagrams from a single model" class="img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="centered">
+                    <form action="https://structurizr.com/dsl" method="post">
+                        <textarea class="hidden" name="source">workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+
+}</textarea>
+                        <input type="submit" class="btn btn-default" style="font-size: 15px" value="Try this example" />
+                    </form>
+                </div>                
             </div>
         </div>
         
@@ -94,7 +177,7 @@
                 <h2>Authoring tools</h2>
                 <p>
                     There are a number of tools for creating a Structurizr compatible workspace; including text-based DSLs and code-based client libraries.
-                    The Structurizr DSL is the recommended authoring tool for most teams, with the code-based tools being useful for teams who want to use code to help build their software architecture model (e.g. component discovery via static analysis, parsing distributed log files, etc) to create data-driven software architecture diagrams.
+                    <b>The Structurizr DSL is the recommended authoring tool for most teams</b>, with the code-based tools being useful for teams who want to use code to help build their software architecture model (e.g. component discovery via static analysis, parsing distributed log files, etc) to create data-driven software architecture diagrams.
                 </p>
 
                 <br />
@@ -191,7 +274,7 @@
                         <td>
                             <a href="https://www.ilograph.com" target="_blank">Ilograph</a>
                             <div class="small">
-                                Ilograph is a web-based modelling tool that provides an interactive way to navigate a hierarchical model.
+                                A web-based modelling tool that provides an interactive way to navigate a hierarchical model.
                                 The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert a Structurizr DSL/JSON workspace to Ilograph format.
                             </div>
                             <div>
@@ -204,7 +287,7 @@
                         <td>
                             <a href="https://plantuml.com" target="_blank">PlantUML</a>
                             <div class="small">
-                                PlantUML is a text-based diagramming tool.
+                                A text-based diagramming tool.
                                 The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert the views defined in a Structurizr DSL/JSON workspace to PlantUML and C4-PlantUML formats.
                             </div>
                             <div>
@@ -218,7 +301,7 @@
                         <td>
                             <a href="https://mermaid-js.github.io/" target="_blank">Mermaid</a>
                             <div class="small">
-                                Mermaid is a text-based diagramming tool.
+                                A text-based diagramming tool.
                                 The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert the views defined in a Structurizr DSL/JSON workspace to Mermaid format.
                             </div>
                             <div>
@@ -231,7 +314,7 @@
                         <td>
                             <a href="https://graphviz.org/" target="_blank">DOT (via Graphviz)</a>
                             <div class="small">
-                                DOT is a text-based diagramming language, with Graphviz used for rendering.
+                                A text-based diagramming language, with Graphviz used for rendering.
                                 The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert the views defined in a Structurizr DSL/JSON workspace to DOT format.
                             </div>
                             <div>
@@ -244,7 +327,7 @@
                         <td>
                             <a href="https://www.websequencediagrams.com/" target="_blank">WebSequenceDiagrams</a>
                             <div class="small">
-                                WebSequenceDiagrams is a text-based diagramming tool.
+                                A text-based diagramming tool.
                                 The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert the dynamic views defined in a Structurizr DSL/JSON workspace to WebSequenceDiagrams format.
                             </div>
                             <div>
@@ -257,7 +340,7 @@
                         <td>
                             <a href="https://gitlab.com/souliane/structurizr2csv/" target="_blank">structurizr2csv</a>
                             <div class="small">
-                                structurizr2csv is a tool to convert the views defined in a Structurizr DSL/JSON workspace to the diagrams.net CSV format.
+                                A tool to convert the views defined in a Structurizr DSL/JSON workspace to the diagrams.net CSV format.
                             </div>
                         </td>
                         <td>
