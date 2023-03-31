@@ -1,3 +1,2 @@
-# Structurizr - models as code
-
-See [https://github.com/structurizr] for more.
+# structurizr.org
+The website at [structurizr.org](https://structurizr.org).

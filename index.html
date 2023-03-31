@@ -1,13 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Structurizr - models as code</title>
-    <meta http-equiv="refresh" content="0; url=https://github.com/structurizr" />
+    <title>Structurizr - software architecture models as code</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Software architecture diagrams and models as code" />
+    <meta name="keywords" content="software architecture, software architecture diagrams, c4 model" />
+
+    <link rel="icon" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+
+    <link href="./css/bootstrap-3.3.2.min.css" rel="stylesheet" media="screen" />
+    <link href="./css/bootstrap-theme-3.3.2.min.css" rel="stylesheet" media="screen" />
+    <link href="./css/structurizr.css" rel="stylesheet" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
+    <link href="./css/structurizr-dark.css" rel="stylesheet" media="screen" />
+
+    <script src="./js/jquery-3.1.0.js"></script>
+    <script src="./js/bootstrap-3.3.2.min.js"></script>
 </head>
 
 <body>
-    <p>
-        Redirecting to <a href="https://github.com/structurizr">https://github.com/structurizr</a>...
-    </p>
+    <div id="topNavigation">
+        <div class="row">
+            <div class="col-sm-2 hidden-xs hidden-sm" style="padding: 18px 30px 10px 30px">
+                <img src="./img/structurizr-banner.png" alt="Structurizr" class="structurizrBannerLight img-responsive brandingLogo" /><img src="./img/structurizr-banner-dark.png" alt="Structurizr" class="structurizrBannerDark img-responsive brandingLogo" />
+            </div>
+            <div class="col-sm-10" style="padding: 20px 30px 10px 30px; text-align: right;">
+                <span class="topNavigationItem"><a href="https://structurizr.com/dsl" target="_blank">Demo</a></span>
+                <span class="topNavigationItem"><a href="#getting-started" target="_blank">Getting started</a></span>
+                <span class="topNavigationItem"><a href="#documentation" target="_blank">Documentation</a></span>
+                <span class="topNavigationItem"><a href="https://github.com/structurizr" target="_blank">GitHub</a></span>
+                <span class="topNavigationItem"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="section">
+            <div class="container centered">
+                <h2>Software architecture models as code</h2>
+                <p>
+                    Structurizr builds upon "diagrams as code", allowing you to create <b>multiple software architecture diagrams</b> from a <b>single model</b>.
+                    There are a number of tools for creating Structurizr compatible workspaces, with the <a href="https://github.com/structurizr/dsl" target="_blank">Structurizr DSL</a>
+                    being the recommended option for most teams.
+                    This Structurizr DSL example creates two diagrams, based upon a single set of elements and relationships.
+                </p>
+                        
+                <div class="row" style="margin-top: 40px; padding-bottom: 10px">
+                    <div class="col-sm-6" style="text-align: left">
+                                <pre style="background: #ffffff;"><code>workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+
+}</code></pre>
+                    </div>
+                    <div class="col-sm-6 centered">
+                        <div style="margin-bottom: 34px">
+                            <img src="./img/try-1.png" alt="Multiple diagrams from a single model" class="img-thumbnail" />
+                        </div>
+                
+                        <div>
+                            <img src="./img/try-2.png" alt="Multiple diagrams from a single model" class="img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="centered">
+                    <form action="https://structurizr.com/dsl" method="post">
+                        <textarea class="hidden" name="source">workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+
+}</textarea>
+                        <input type="submit" class="btn btn-default" style="font-size: 15px" value="Try this example" />
+                    </form>
+                </div>                
+            </div>
+        </div>
+        
+        <a name="rendering"></a>
+        <div class="section">
+            <div class="container centered">
+                <h2>Rendering tools</h2>
+                <p>
+                    There are number of tools that can be used to render views in a Structurizr workspace,
+                    each offering a different set of features and integration options.
+                </p>
+
+                <br />
+        
+                <table class="table table-striped">
+                    <tr>
+                        <td>
+                            <a href="https://structurizr.com" target="_blank">Structurizr cloud service, on-premises installation, and Lite</a>
+                            <div class="small">
+                                A browser-based rendering tool with diagrams that are zoomable, interactive, animatable, and embeddable.
+                                Markdown/AsciiDoc documentation and architecture decision records (ADRs) can also be published alongside the diagrams,
+                                while alternative visualisations (e.g. graphs and trees) allow you to explore your software architecture model.
+                            </div>
+                            <div>
+                                <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./img/rendering-structurizr.png" alt="Structurizr" class="img-thumbnail screenshot" /></a>
+                                <a href="https://structurizr.com/share/36141/diagrams#Containers" target="_blank"><img src="./img/rendering-structurizr-key.png" alt="Structurizr" class="img-thumbnail screenshot" /></a>
+                                <br />
+                                <a href="https://structurizr.com/share/36141/explore/graph?view=Containers" target="_blank"><img src="./img/rendering-structurizr-graph.png" alt="Structurizr" class="img-thumbnail screenshot" /></a>
+                                <a href="https://structurizr.com/share/36141/explore/tree?view=Containers" target="_blank"><img src="./img/rendering-structurizr-tree.png" alt="Structurizr" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://github.com/avisi-cloud/structurizr-site-generatr" target="_blank">Structurizr Site Generatr</a>
+                            <div class="small">
+                                Builds an interactive website based upon the diagrams and documentation container within a Structurizr workspace.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-generatr.png" target="_blank"><img src="./img/rendering-generatr.png" alt="C4Viz" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://github.com/pmorch/c4viz" target="_blank">C4Viz</a>
+                            <div class="small">
+                                A web-based rendering tool that renders a zoomable set of C4-PlantUML diagrams.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-c4viz.png" target="_blank"><img src="./img/rendering-c4viz.png" alt="C4Viz" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://www.ilograph.com" target="_blank">Ilograph</a>
+                            <div class="small">
+                                A text-based modelling tool that provides an interactive way to navigate a hierarchical model.
+                                Ilograph doesn't natively support Structurizr or the C4 model, but the <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to convert a Structurizr workspace to Ilograph format.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-ilograph.png" target="_blank"><img src="./img/rendering-ilograph.png" alt="Ilograph" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <a href="https://plantuml.com" target="_blank">PlantUML</a>
+                            <div class="small">
+                                The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to export the views defined in a Structurizr workspace to PlantUML and C4-PlantUML formats.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-plantuml.png" target="_blank"><img src="./img/rendering-plantuml.png" alt="PlantUML" class="img-thumbnail screenshot" /></a>
+                                <a href="./img/rendering-plantuml-key.png" target="_blank"><img src="./img/rendering-plantuml-key.png" alt="PlantUML" class="img-thumbnail screenshot" /></a>
+                                <a href="./img/rendering-c4plantuml.png" target="_blank"><img src="./img/rendering-c4plantuml.png" alt="C4-PlantUML" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://mermaid-js.github.io/" target="_blank">Mermaid</a>
+                            <div class="small">
+                                The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to export the views defined in a Structurizr workspace to Mermaid format.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-mermaid.jpg" target="_blank"><img src="./img/rendering-mermaid.jpg" alt="Mermaid" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://graphviz.org/" target="_blank">DOT (via Graphviz)</a>
+                            <div class="small">
+                                The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to export the views defined in a Structurizr workspace to DOT format for use with Graphviz.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-dot.png" target="_blank"><img src="./img/rendering-dot.png" alt="DOT (via Graphviz)" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://www.websequencediagrams.com/" target="_blank">WebSequenceDiagrams</a>
+                            <div class="small">
+                                The <a href="https://github.com/structurizr/cli" target="_blank">Structurizr CLI</a> can be used to export the dynamic views defined in a Structurizr workspace to WebSequenceDiagrams format.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-websequencediagrams.png" target="_blank"><img src="./img/rendering-websequencediagrams.png" alt="WebSequenceDiagrams" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://kroki.io/" target="_blank">Kroki</a>
+                            <div class="small">
+                                Kroki generates diagrams from a number of text-based formats, including the Structurizr DSL.
+                            </div>
+                            <div>
+                                <a href="./img/rendering-kroki.png" target="_blank"><img src="./img/rendering-kroki.png" alt="Kroki" class="img-thumbnail screenshot" /></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <a href="https://gitlab.com/souliane/structurizr2csv/" target="_blank">structurizr2csv</a>
+                            <div class="small">
+                                A tool to convert the views defined in a Structurizr DSL/JSON workspace to the diagrams.net CSV format.
+                            </div>
+                            <br />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://marketplace.atlassian.com/apps/1211675/git-for-confluence-markdown-plantuml-graphviz-mermaid" target="_blank">Git for Confluence | Markdown, PlantUML, Graphviz, Mermaid</a>
+                            <div class="small">
+                                A Confluence plugin that will render a specific diagram from a Structurizr DSL file stored in your git repo.
+                            </div>
+                            <br />
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        
+        <a name="custom"></a>
+        <div class="section">
+            <div class="container centered">
+                <h2>Custom tools</h2>
+                <p>
+                    Irrespective of how your define your workspace (e.g. using the Structurizr DSL),
+                    workspaces are transformed into an open JSON data format (<a href="https://github.com/structurizr/json/blob/master/structurizr.yaml" target="_blank">OpenAPI 3.0 definition</a>),
+                    so it's relatively straightforward to build your own custom tooling to consume that data;
+                    perhaps for rendering views with your own diagramming tool,
+                    or to integrate the data with your internal dashboards and service catalogs.
+                    Although JSON is an easy data format to work with, using something like <a href="https://github.com/structurizr/java" target="_blank">Structurizr for Java</a> will provide a quicker starting point.
+                    In this code snippet, the resulting <code>Workspace</code> object provides an easy way to navigate/manipulate/export the data: 
+                </p>
+                
+                <br />
+
+                <pre style="text-align: left;">public static void main(String[] args) throws Exception {
+    Workspace workspace = WorkspaceUtils.loadWorkspaceFromJson(new File("workspace.json"));
+}</pre>
+            </div>
+        </div>
+
+        <a name="getting-started"></a>
+        <div class="section">
+            <div class="container centered">
+                <h2>Getting started</h2>
+                <p>
+                    The separation of workspace authoring from diagram rendering makes it possible to use the Structurizr tooling in a number of ways,
+                    but the easiest ways to get started are:
+                </p>
+
+                <ol style="list-style-position: inside;">
+                    <li>Use the <a href="https://structurizr.com/dsl" target="_blank">Structurizr DSL demo page</a> to try the DSL and a number of diagram rendering options, without installing any tooling.</li>
+                    <li>Use the DSL in conjunction with Structurizr Lite; see <a href="https://structurizr.com/share/76352/documentation#getting-started" target="_blank">Getting started with Structurizr Lite</a> for details.</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <a name="documentation"></a>
+        <div class="section">
+            <div class="container centered">
+                <h2>Documentation</h2>
+                <p>
+                    Since there are a number of ways to use the Structurizr tooling, there are a number of places to find documentation.
+                </p>
+
+                <ul style="list-style-position: inside;">
+                    <li>Structurizr DSL <a href="https://github.com/structurizr/dsl/blob/master/docs/language-reference.md" target="_blank">language reference</a> and <a href="https://github.com/structurizr/dsl/tree/master/docs/cookbook" target="_blank">cookbook</a>.</li>
+                    <li><a href="https://structurizr.com/help" target="_blank">Structurizr - Help</a>: documentation for the Structurizr browser-based diagrams/documentation/decisions renderer.</li>
+                    <li><a href="https://structurizr.com/share/76352/documentation" target="_blank">Structurizr Lite</a>: installation and configuration.</li>
+                    <li><a href="https://structurizr.com/share/18571/documentation" target="_blank">Structurizr on-premises</a>: installation and configuration.</li>
+                    <li><a href="https://github.com/structurizr/cli#readme" target="_blank">Structurizr CLI</a>: installation and usage.</li>
+                    <li><a href="https://github.com/structurizr/export#readme" target="_blank">Structurizr exporters</a>: configuration and usage of the PlantUML, C4-PlantUML, Mermaid, DOT, WebSequenceDiagrams, and Ilograph exporters. </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     </body>
 </html>
